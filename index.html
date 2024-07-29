@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://dummyjson.com/products">
+   <style>
+     .new1:hover{
+   background-color: lightgreen;
+}
+
+.btn{
+   color: #fff;
+   border: 1px solid #fff;
+}
+.navbar{
+   margin-bottom: 20px;
+   width: 100%;
+   background-color:black;
+}
+.carousel-item{
+  margin-top: 80px;
+}
+.carousel-item img{
+   width: 100%;
+   height: 80vh;
+}
+.navbar-nav li{
+  margin-left: 20px;
+  color: #fff;
+}
+.navbar-nav{
+  color: #fff;
+  margin-left: 40px;
+}
+.navbar-toggler{
+  background-color: #fff;
+}
+@media only screen and (max-width: 450px){
+   .carousel-item img{
+     height: 200px;
+   }
+ }
+
+   </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-black px-3 py-2 fixed-top">
+      <div data-aos="fade-down" class="container-fluid">
+        <a class="navbar-brand fs-2 text-light" href="#">E-Commerce Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-1 mb-lg-0 fs-4 ">
+            <li class="nav-item ">
+              <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <select class=" nav-link " aria-label="Default select example" name="" id="select">
+                
+                <option value="All">All Catagerty</option>
+              </select>
+             </li>
+            </ul>
+          <form class="d-flex">
+            <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+            <div class="icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="quantity">0</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+      <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div data-aos="fade-up" class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://img.freepik.com/premium-photo/organic-market-store-scene-with-empty-wooden-pedestal-against-blurred-backdrop-assorted-vegetables-fruits-highlighting-healthy-vegetarian-product-offerings_634731-3148.jpg?ga=GA1.2.1529019871.1720201404&semt=ais_user" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://img.freepik.com/premium-photo/colorful-tshirts-front-dark-background-ai-generative_890859-6880.jpg?ga=GA1.2.1529019871.1720201404&semt=ais_user" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://img.freepik.com/free-photo/blue-armchair-against-blue-wall-living-room-interior-elegant-interior-design-with-copy-space-ai-generative_123827-23718.jpg?ga=GA1.2.1529019871.1720201404&semt=ais_user" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="div-1">
+       <div class="new-div">
+          <h1 style="text-align: center; padding: 30px; color: turquoise;">Items Collection</h1>
+        </div>
+        <select name="" id="select">
+          <option value="All">All</option>
+        </select>
+  </div>
+    <div  id="main"></div>
+
+    <div id="cart" class="new-cart">
+      
+      <h3>Your cart</h3>
+      <div class="ul" style="overflow-y: scroll; height: 80vh;">
+       <ul class="product-list"></ul>
+      </div>
+      <div class="check-out">
+        <button class="total"><small>Total(0 item) $0</small></button>
+        <button id="close" class="close">Close</button>
+      </div>
+    </div>
+    <footer>
+    <div class="footer d-flex just justify-content-evenly p-3 ">
+      <div class="footer1">
+        <h1 >Welcome To Our <br /> Gift Shop</h1>
+        <p>Sequi perspiciatis nulla reiciendis, rem, tenetur impedit,
+          eveniet non <br /> necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus
+          <br /> consequatur distinctio esse, possimus maiores aliquid repellat beatae cum,<br />
+          perspiciatis enim, accusantium perferendis.</p>
+          <button class="btn  px-5">CONTECT US</button>
+      </div>
+      <div class="footer2">
+        <img src="img/slider-img.png" alt="">
+      </div>
+    </div>
+    </footer>
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   <script>
+    AOS.init();
+  </script>
+</body>
+</html>
