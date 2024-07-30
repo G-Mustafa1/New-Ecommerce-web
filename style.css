@@ -127,9 +127,9 @@
    outline: none;
    /* font-size: 1.5rem; */
 }
-.check-out button:focus{
+.check-out .close:focus{ 
    background-color: #fff;
-   color: #000;
+   color: #000; 
 }
 .active .new-cart{
    left: calc(100% - 400px);
